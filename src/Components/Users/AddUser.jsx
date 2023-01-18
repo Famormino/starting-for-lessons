@@ -1,13 +1,13 @@
-import React from 'react';
-import Card from '../UI/Card';
+import React from "react";
+import Button from "../UI/Button";
+import Card from "../UI/Card";
 
 import classes from "./AddUser.module.css";
 
 const AddUser = () => {
-
     const addUserHandle = (event) => {
-        event.preventDefault()
-    }
+        event.preventDefault();
+    };
 
     return (
         <Card className={classes.input}>
@@ -16,10 +16,10 @@ const AddUser = () => {
                 <input id="userName" type="text" />
                 <label htmlFor="age">Age</label>
                 <input id="age" type="number" />
-                <button type='submit'>Add User</button>
+                <Button type="submit">Add User</Button>
             </form>
         </Card>
-    )
-}
+    );
+};
 
 export default AddUser;
