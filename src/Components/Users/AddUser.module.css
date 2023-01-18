@@ -1,11 +1,12 @@
 .input {
     margin: 2rem auto;
-    padding: 1rem;
-    width: 90%;
-    max-width: 40rem;
+    padding: 2rem;
+    width: 80%;
+    max-width: 35rem;
   }
   
   .input label {
+    text-align: center;
     display: block;
     font-weight: bold;
     margin-bottom: 0.5rem;
@@ -22,5 +23,5 @@
   
   .input input:focus {
     outline: none;
-    border-color: #4f005f;
+    border-color: #cc00f5;
   }
