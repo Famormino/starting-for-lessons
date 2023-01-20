@@ -43,12 +43,17 @@ const AddUser = (props) => {
         setEnteredUserAge("");
     };
 
+    const modalHandleChange = () => {
+        setErrorModal(null)
+    }
+
     return (
         <>
             {errorModal && (
                 <ErrorModal
                     title={errorModal.title}
                     message={errorModal.message}
+                    onConfirm = {modalHandleChange}
                 />
             )}
             <Card className={classes.input}>
