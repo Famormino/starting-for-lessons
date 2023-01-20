@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "../UI/Card";
+import UserItem from "./UserItem";
 
 import classes from "./UserList.module.css";
 
@@ -8,9 +9,7 @@ const UserList = (props) => {
         <Card className={classes.users}>
             <ul>
                 {props.users.map((user) => (
-                    <li key={user.id}>
-                        {user.name} ({user.age} years old)
-                    </li>
+                    <UserItem key={user.id} name={user.name} age={user.age} id={user.id} onDelete={props.onDelete}/>
                 ))}
             </ul>
         </Card>

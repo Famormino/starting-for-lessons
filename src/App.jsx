@@ -14,10 +14,17 @@ function App() {
         });
     };
 
+    const deleteHandler = (id) => {
+        setUserList((prevState) => prevState.filter((item) => item.id !== id));
+    };
     return (
         <div>
             <AddUser onAddUser={addUserHandler} />
-            <UserList users={userList} />
+            {userList.length !== 0 ? (
+                <UserList users={userList} onDelete={deleteHandler} />
+            ) : (
+               <h1 style={{'color': 'red', textAlign: "center"}}> No hay usuarios cargados</h1>
+            )}
         </div>
     );
 }
