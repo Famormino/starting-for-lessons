@@ -8,6 +8,7 @@ import classes from "./AddUser.module.css";
 const AddUser = (props) => {
     const [enteredUserName, setEnteredUserName] = useState("");
     const [enteredUserAge, setEnteredUserAge] = useState("");
+    const [errorModal, setErrorModal] = useState();
 
     const userNameChangeHandler = (event) => {
         setEnteredUserName(event.target.value);
@@ -16,15 +17,27 @@ const AddUser = (props) => {
     const userAgeChangeHandler = (event) => {
         setEnteredUserAge(event.target.value);
     };
+
     const addUserHandle = (event) => {
         event.preventDefault();
         if (
             enteredUserName.trim().length === 0 ||
-            enteredUserAge.trim().length === 0 ||
-            +enteredUserAge < 1
+            enteredUserAge.trim().length === 0
         ) {
+            setErrorModal({
+                title: "Ocurrió un error",
+                message: "Complete el usuario y la edad para enviar",
+            });
             return;
         }
+        if (+enteredUserAge < 1) {
+            setErrorModal({
+                title: "Ocurrió un error",
+                message: "La edad no puede ser menor a 1",
+            });
+            return;
+        }
+
         props.onAddUser(enteredUserName, enteredUserAge);
         setEnteredUserName("");
         setEnteredUserAge("");
@@ -32,10 +45,12 @@ const AddUser = (props) => {
 
     return (
         <>
-            <ErrorModal
-                title={"An error ocurred!"}
-                message="Something went wrong!"
-            />
+            {errorModal && (
+                <ErrorModal
+                    title={errorModal.title}
+                    message={errorModal.message}
+                />
+            )}
             <Card className={classes.input}>
                 <form onSubmit={addUserHandle}>
                     <label htmlFor="userName">User</label>
