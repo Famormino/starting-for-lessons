@@ -1,4 +1,7 @@
+import React from "react";
+
 const UserItem = (props) => {
+    
     const deleteHandler = () => {
         props.onDelete(props.id);
     };
