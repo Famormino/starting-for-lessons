@@ -44,8 +44,8 @@ const AddUser = (props) => {
     };
 
     const modalHandleChange = () => {
-        setErrorModal(null)
-    }
+        setErrorModal(null);
+    };
 
     return (
         <>
@@ -53,7 +53,7 @@ const AddUser = (props) => {
                 <ErrorModal
                     title={errorModal.title}
                     message={errorModal.message}
-                    onConfirm = {modalHandleChange}
+                    onConfirm={modalHandleChange}
                 />
             )}
             <Card className={classes.input}>

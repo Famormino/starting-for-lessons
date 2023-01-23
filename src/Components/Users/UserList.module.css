@@ -2,16 +2,16 @@
     margin: 2rem auto;
     width: 90%;
     max-width: 35rem;
-  }
-  
-  .users ul {
+}
+
+.users ul {
     font-size: large;
     list-style: none;
     padding: 1rem;
-  }
-  
-  .users li {
+}
+
+.users li {
     border: 3px solid #ccc;
     margin: 0.5rem 0;
     padding: 0.5rem;
-  }
+}

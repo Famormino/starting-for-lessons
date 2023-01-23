@@ -9,7 +9,13 @@ const UserList = (props) => {
         <Card className={classes.users}>
             <ul>
                 {props.users.map((user) => (
-                    <UserItem key={user.id} name={user.name} age={user.age} id={user.id} onDelete={props.onDelete}/>
+                    <UserItem
+                        key={user.id}
+                        name={user.name}
+                        age={user.age}
+                        id={user.id}
+                        onDelete={props.onDelete}
+                    />
                 ))}
             </ul>
         </Card>

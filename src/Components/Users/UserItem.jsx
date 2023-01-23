@@ -1,12 +1,12 @@
 const UserItem = (props) => {
     const deleteHandler = () => {
-        props.onDelete(props.id)
-    } 
-    return(
+        props.onDelete(props.id);
+    };
+    return (
         <li onClick={deleteHandler}>
-           El usuario <b>{props.name}</b> tiene {props.age} Años
+            El usuario <b>{props.name}</b> tiene {props.age} Años
         </li>
-    )
+    );
 };
 
 export default UserItem;
