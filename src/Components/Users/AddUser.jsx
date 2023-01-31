@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Button from "../UI/Button";
 import Card from "../UI/Card";
 import ErrorModal from "../UI/ErrorModal";
@@ -6,6 +6,8 @@ import ErrorModal from "../UI/ErrorModal";
 import classes from "./AddUser.module.css";
 
 const AddUser = (props) => {
+    const inputEl = useRef(null);
+
     const [enteredUserName, setEnteredUserName] = useState("");
     const [enteredUserAge, setEnteredUserAge] = useState("");
     const [errorModal, setErrorModal] = useState();
@@ -47,6 +49,10 @@ const AddUser = (props) => {
         setErrorModal(null);
     };
 
+    const onButtonClick = () => {
+        inputEl.current.focus();
+    };
+
     return (
         <>
             {errorModal && (
@@ -64,6 +70,7 @@ const AddUser = (props) => {
                         type="text"
                         onChange={userNameChangeHandler}
                         value={enteredUserName}
+                        ref={inputEl}
                     />
                     <label htmlFor="age">Age</label>
                     <input
@@ -72,7 +79,9 @@ const AddUser = (props) => {
                         onChange={userAgeChangeHandler}
                         value={enteredUserAge}
                     />
-                    <Button type="submit">Add User</Button>
+                    <Button type="submit" onClick={onButtonClick}>
+                        Add User
+                    </Button>
                 </form>
             </Card>
         </>
